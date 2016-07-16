@@ -38,24 +38,29 @@
 #define MICROPY_HW_I2C2_SDA (pin_B3)
 
 // SPI busses
+
+// We don't use NSS, but need to define it.
+#define MICROPY_HW_SPI1_NSS  (pin_A4)
+
 #define MICROPY_HW_SPI1_SCK  (pin_B3)
 #define MICROPY_HW_SPI1_MISO (pin_B4)
 #define MICROPY_HW_SPI1_MOSI (pin_B5)
+
+// We don't use NSS, but need to define it.
+#define MICROPY_HW_SPI2_NSS  (pin_B9)
 
 #define MICROPY_HW_SPI2_SCK  (pin_B13)
 #define MICROPY_HW_SPI2_MISO (pin_B14)
 #define MICROPY_HW_SPI2_MOSI (pin_B15)
 
-// Since the G30TH has no user switch and no user LEDs, we use
-// PB10 as a user switch and PB8 as an LED. This allows the
-// filesystem to be reset at boot time. The user can configure these
-// some other way during bootup - if needed.
-
+// There is only one user LED
 #define MICROPY_HW_LED1             (pin_C7)
 #define MICROPY_HW_LED_OTYPE        (GPIO_MODE_OUTPUT_PP)
 #define MICROPY_HW_LED_ON(pin)      (pin->gpio->BSRRL = pin->pin_mask)
 #define MICROPY_HW_LED_OFF(pin)     (pin->gpio->BSRRH = pin->pin_mask)
 
+// There are two switches, but the current code only supports one
+// So I picked LDR0
 #define MICROPY_HW_USRSW_PIN        (pin_A15)
 #define MICROPY_HW_USRSW_PULL       (GPIO_PULLUP)
 #define MICROPY_HW_USRSW_EXTI_MODE  (GPIO_MODE_IT_FALLING)

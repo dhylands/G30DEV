@@ -67,6 +67,7 @@ Tested:
 - LDR1
 - JP1
 - LCD Backlight
+- Piezo Buzzer
 
 Not yet tested:
 - COM1 Serial
@@ -74,4 +75,3 @@ Not yet tested:
 - WizNet 5500 Ethernet
 - LCD
 - RTC Clock
-- Piezo Buzzer
