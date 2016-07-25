@@ -21,6 +21,11 @@
 #define MICROPY_HW_CLK_PLLP (RCC_PLLP_DIV8)
 #define MICROPY_HW_CLK_PLLQ (14)
 
+// The G30DEV board has a 32kHz crystal for the RTC
+#define MICROPY_HW_RTC_USE_LSE      (1)
+#define MICROPY_HW_RTC_USE_US       (0)
+#define MICROPY_HW_RTC_USE_CALOUT   (0)
+
 // UART config
 #define MICROPY_HW_UART1_PORT (GPIOA)
 #define MICROPY_HW_UART1_PINS (GPIO_PIN_9 | GPIO_PIN_10)
@@ -55,6 +60,7 @@
 
 // There is only one user LED
 #define MICROPY_HW_LED1             (pin_C7)
+#define MICROPY_HW_LED1_PWM         { TIM3, 3, TIM_CHANNEL_2, GPIO_AF2_TIM3 }
 #define MICROPY_HW_LED_OTYPE        (GPIO_MODE_OUTPUT_PP)
 #define MICROPY_HW_LED_ON(pin)      (pin->gpio->BSRRL = pin->pin_mask)
 #define MICROPY_HW_LED_OFF(pin)     (pin->gpio->BSRRH = pin->pin_mask)

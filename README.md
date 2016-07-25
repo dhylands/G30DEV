@@ -53,25 +53,39 @@ can get back into DFU mode by using the command:
 ```
 >>> pyb.bootloader()
 ```
-or by connecting B0 to 3.3v.
+or by connecting the B0 test point to 3.3v.
 
 LDR0 is connected to the User Switch.
 
-Peripheral Testing status:
+## Peripheral Testing status:
 
 Tested:
 - USB Repl/Mass Storage
-- LED
+- LED (including PWM intensity)
 - SD Card
 - LDR0/User Switch
 - LDR1
 - JP1
-- LCD Backlight
 - Piezo Buzzer
-
-Not yet tested:
-- COM1 Serial
-- COM2 Serial
-- WizNet 5500 Ethernet
 - LCD
-- RTC Clock
+- LCD Backlight
+- RTC Clock (board needs to be initially powered on for a few minutes)
+- COM1 (UART1)
+- COM2 (UART2)
+
+### Notes on COM2 (DB9)
+
+There is no ground on pin 5. It's connected to the frame ground instead.
+So you really need to ensure that you have access to the frame ground. I had
+to test with a wire plugged into one of the GND signals on the expansion
+connector in order to get a reliable ground.
+
+If you unscrew the mounting bolts on the connector then your frame ground doesn't
+go through to the shell, and my DB9 breakouts were also the same way. So I had to
+remove one set of mounting connectors in order for the the connectors to plug
+it in and then you lose the frame ground. If you're planning on using this
+connector, I'd recommend soldering a small wire (on the back of the PCB) from
+pin 5 on the DB8 connector to the mounting solder connection.
+
+## Not yet tested:
+- WizNet 5500 Ethernet
