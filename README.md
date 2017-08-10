@@ -81,11 +81,11 @@ to test with a wire plugged into one of the GND signals on the expansion
 connector in order to get a reliable ground.
 
 If you unscrew the mounting bolts on the connector then your frame ground doesn't
-go through to the shell, and my DB9 breakouts were also the same way. So I had to
-remove one set of mounting connectors in order for the the connectors to plug
-it in and then you lose the frame ground. If you're planning on using this
+go through to the shell, and my DB9 breakouts were also the same way. My DB9 breakouts
+also had mounting connectors and when I removed them (so that I could plug it in), I
+lost the frame ground. If you're planning on using this
 connector, I'd recommend soldering a small wire (on the back of the PCB) from
-pin 5 on the DB8 connector to the mounting solder connection.
+pin 5 on the DB9 connector to the mounting solder connection.
 
 ## Not yet tested:
 - WizNet 5500 Ethernet
